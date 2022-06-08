@@ -1,0 +1,64 @@
+﻿@model List<ProyectClients.Models.Cliente> 
+
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top:35px">
+    <div class="col-sm-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="text-center text-black">Lista de clientes</h3>
+            </div>
+         <div class="panel-body">
+             <a class="btn btn-success" href="@Url.Action("Registrar","Cliente")">Crear Nuevo</a>
+             <hr />
+             <div class="table-responsive">
+                 <table class="table table-hover">
+                     <thead>
+                         <tr class="success">
+                             <th>ID</th>
+                             <th>Nombres</th>
+                             <th>Nit</th>
+                             <th>Telefono</th>
+                             <th>Direción</th>
+                             <th>Ciudad</th>
+                             <th style="width:140px">E-Mail</th>
+                             <th></th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <!--
+                                Mostraremos todos los elementos de la lista
+                                ¿Como la reconoce?
+                                Lo reconoce por esta declaración que tenemos en la Linea 1, nos esta diciendo es que toda la vista HTML
+                                tiene permitido trabajar con un modelo que sea una lista de clientes: model List<ProyectClients.Models.Cliente>
+                                -->
+
+                         <!--Mediante el puedo acceder al código de C#, incrustar codigo C# en HTML se le llama Razor-->
+                         
+                         @foreach(ProyectClients.Models.Cliente Item in Model)
+                                {
+                                <tr>
+                                    <td>@Item.IdCliente</td>
+                                    <td>@Item.Nombres</td>
+                                    <td>@Item.Nit</td>
+                                    <td>@Item.Telefono</td>
+                                    <td>@Item.Direccion</td>
+                                    <td>@Item.Ciudad</td>
+                                    <td>@Item.Correo</td>
+                                    <td>                                                                                                                                     <!--Item elemento de la lista,Nombre, Apellido... de la propiedad IdContacto y la estoy pasando en una variable idcliente-->
+                                        <a class="btn btn-primary btn-sm" href="@Url.Action("Editar","Cliente", new { idcliente = Item.IdCliente })">Editar</a>
+                                        <a class="btn btn-danger btn-sm" href="@Url.Action("Eliminar","Cliente", new { idcliente= Item.IdCliente })">Eliminar</a>
+                                    </td>
+                                </tr>
+                                }
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+        </div>
+    </div>
+</div>

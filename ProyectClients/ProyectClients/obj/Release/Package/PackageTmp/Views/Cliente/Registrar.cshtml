@@ -1,0 +1,59 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using System.Configuration;
+@using System.Data;
+@using System.Data.SqlClient;
+@using System.Linq;
+@using System.Web;
+@using System.Web.Mvc;
+@using ProyectClients.Models;
+
+@model ProyectClients.Models.Cliente
+
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top:35px">
+    <div class="col-sm-12">
+        <!--Todo el ancho de las columnas-->
+        <div class="panel panel-success">
+            <!--Contenedor-->
+            <div class="panel-heading">
+                <!--cabecera-->
+                <h3>Nuevo usuario</h3>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("Registrar","Cliente")" method="post">
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" name="Nombres" class="form-control w-50" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Nit</label>
+                        <input type="text" name="Nit" class="form-control w-50" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text" name="Telefono" class="form-control w-50" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" name="Direccion" class="form-control w-50" required/>
+                    </div>
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" name="Ciudad" class="form-control w-50" required/>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Correo</label>
+                        <input type="text" name="Correo" class="form-control w-50" required/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Registrar</button>
+                    <a class="btn btn-dark mb-3" href="@Url.Action("Inicio", "Cliente")">Volver</a> <!--Cliente, controlador-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

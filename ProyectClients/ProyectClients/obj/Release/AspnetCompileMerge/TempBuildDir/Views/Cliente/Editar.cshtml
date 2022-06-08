@@ -1,0 +1,54 @@
+﻿@model ProyectClients.Models.Cliente
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar</h2>
+
+<div class="row" style="margin-top:35px">
+    <div class="col-sm-12">
+        <!--Todo el ancho de las columnas-->
+        <div class="panel panel-success">
+            <!--Contenedor-->
+            <div class="panel-heading">
+                <!--cabecera-->
+                <h3>Editar Cliente</h3>
+            </div>
+            <div class="panel-body">
+                <form action="@Url.Action("Editar","Cliente")" method="post"><!--voy a llamar al metodo Editar que se cuentra en el controlador ClienteController-->
+                    <!--llamar a todos por el nombre que tienen de propiedad name="Nombres"-->
+                    <input type="hidden" name="IdCliente" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.IdCliente)" />
+                    <div class="form-group">
+                        <label>Nombres</label>                                                                                                              <!--Estoy accediendo al valor de mi modelo cliente en su atributo Nombre para que se refleje su valor-->
+                        <input type="text" name="Nombres" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Nombres)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nit</label>
+                        <input type="text" name="Nit" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Nit)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text" name="Telefono" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Telefono)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" name="Direccion" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Direccion)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ciudad</label>
+                        <input type="text" name="Ciudad" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Ciudad)" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Correo</label>
+                        <input type="text" name="Correo" class="form-control w-50" required value="@Html.DisplayTextFor(m => m.Correo)" />
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Actualizar</button>
+                    <a class="btn btn-dark mb-3" href="@Url.Action("Inicio", "Cliente")">Volver</a> <!--Cliente, controlador-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

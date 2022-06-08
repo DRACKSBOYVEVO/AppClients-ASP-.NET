@@ -1,0 +1,27 @@
+﻿@model ProyectClients.Models.Cliente
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top:35px">
+    <div class="col-sm-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3>Eliminar Cliente</h3>
+            </div>
+            <div class="panel-body">
+                <div class="alert alert-danger">
+                    ¿Estas seguro que desea eliminar al usuario @Html.DisplayTextFor(m => m.Nombres) ?
+                </div>
+                <form action="@Url.Action("Eliminar","Cliente")" method="post">
+                    <input type="hidden" name="IdCliente" class="form-control w-50 mb-3" required value="@Html.DisplayTextFor(m => m.IdCliente)" />
+                    <button type="submit" class="btn btn-danger mb-3">Eliminar</button>
+                    <a class="btn btn-secondary mb-3" href="@Url.Action("Inicio", "Cliente")">Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
